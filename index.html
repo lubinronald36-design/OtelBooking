@@ -1,102 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mixed Quiz</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-		}
-		.question {
-			margin-bottom: 20px;
-		}
-		.correct {
-			color: green;
-		}
-		.incorrect {
-			color: red;
-		}
-	</style>
+  <title>Mixed Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
 </head>
 <body>
-	<h1>Mixed Quiz</h1>
-	<h2>English and Computer Questions</h2>
-	
-	<form id="quiz-form">
-		<!-- Question 1 -->
-		<div class="question">
-			<p>1. What's the opposite of "big"?</p>
-			<input type="text" id="q1" name="q1">
-			<span id="q1-feedback"></span>
-		</div>
-		
-		<!-- Question 2 -->
-		<div class="question">
-			<p>2. What does CPU stand for?</p>
-			<input type="text" id="q2" name="q2">
-			<span id="q2-feedback"></span>
-		</div>
-		
-		<!-- Question 3 -->
-		<div class="question">
-			<p>3. Identify the sentence with correct grammar:</p>
-			<input type="radio" id="q3-a" name="q3" value="a">
-			<label for="q3-a">Me go store.</label><br>
-			<input type="radio" id="q3-b" name="q3" value="b">
-			<label for="q3-b">I go to store.</label><br>
-			<input type="radio" id="q3-c" name="q3" value="c">
-			<label for="q3-c">I goes to the store.</label><br>
-			<input type="radio" id="q3-d" name="q3" value="d">
-			<label for="q3-d">I go to the store.</label>
-			<span id="q3-feedback"></span>
-		</div>
-		
-		<button type="submit">Submit</button>
-		<p id="score"></p>
-	</form>
-	
-	<script>
-		const form = document.getElementById('quiz-form');
-		const scoreElement = document.getElementById('score');
-		
-		form.addEventListener('submit', (e) => {
-			e.preventDefault();
-			let score = 0;
-			
-			                   
-			const q1Answer = document.getElementById('q1').value.toLowerCase();
-			if (q1Answer === 'small') {
-				document.getElementById('q1-feedback').textContent = 'Correct!';
-				document.getElementById('q1-feedback').className = 'correct';
-				score++;
-			} else {
-				document.getElementById('q1-feedback').textContent = 'Incorrect. The correct answer is "small".';
-				document.getElementById('q1-feedback').className = 'incorrect';
-			}
-			
-			                   
-			const q2Answer = document.getElementById('q2').value.toLowerCase();
-			if (q2Answer === 'central processing unit') {
-				document.getElementById('q2-feedback').textContent = 'Correct!';
-				document.getElementById('q2-feedback').className = 'correct';
-				score++;
-			} else {
-				document.getElementById('q2-feedback').textContent = 'Incorrect. The correct answer is "Central Processing Unit".';
-				document.getElementById('q2-feedback').className = 'incorrect';
-			}
-			
-			                   
-			const q3Answer = document.querySelector('input[name="q3"]:checked');
-			if (q3Answer && q3Answer.value === 'd') {
-				document.getElementById('q3-feedback').textContent = 'Correct!';
-				document.getElementById('q3-feedback').className = 'correct';
-				score++;
-			} else {
-				document.getElementById('q3-feedback').textContent = 'Incorrect. The correct answer is "I go to the store.".';
-				document.getElementById('q3-feedback').className = 'incorrect';
-			}
-			
-			scoreElement.textContent = You scored ${score} out of 3;
-		});
-	</script>
-</body>
-</html>
+  <h1>Mixed Quiz</h1>
+  <h2>English and Computer Questions</h2>
+  <form id="quiz-form">
+    <!-- Question 1 -->
+    <div class="question">
+      <p>1. What's the opposite of "big"?</p>
+      <input type="text" id="q1" name="q1">
+      <span id="q1-feedback"></span>
+    </div>
+    <!-- Question 2 -->
+    <div class="question">
+      <p>2. What does CPU stand for?</p>
+      <input type="text" id="q2" name="q2">
+      <span id="q2-feedback"></span>
+    </div>
+    <!-- Question 3 -->
+    <div class="question">
+      <p>3. Identify the sentence with correct grammar:</p>
+      <input type="radio" id="q3-a" name="q3" value="a">
+      <label for="q3-a">Me go store.</label><br>
+      <input type="radio" id="q3-b" name="q3" value="b">
+      <label for="q3-b">I go to store.</label><br>
+      <input type="radio" id="q3-c" name="q3" value="c">
+      <label for="q3-c">I goes to the store.</label><br>
+      <input type="radio" id="q3-d" name="q3" value="d">
+      <label for="q3-d">I go to the store.</label>
+      <span id="q3-feedback"></span>
+    </div>
+    <button type="submit">Submit</button>
+    <p id="score"></p>
+    <button id="retake-btn" style="display: none;">Retake Quiz</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('quiz-form');
+    const scoreElement = document.getElementById('score');
+    const retakeBtn = document.getElementById('retake-btn');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let score = 0;
+
+      const q1Answer = document.getElementById('q1').value.toLowerCase();
+      if (q1Answer === 'small') {
+        document.getElementById('q1-feedback').textContent = 'Correct!';
+        document.getElementById('q1-feedback').className = 'correct';
+        score++;
+      } else {
+        document.getElementById('q1-feedback').textContent = 'Incorrect. The correct answer is "small".';
+        document.getElementById('q1-feedback').className = 'incorrect';
+      }
+
+      const q2Answer = document.getElementById('q2').value.toLowerCase();
+      if (q2Answer === 'central processing unit') {
+        document.getElementById('q2-feedback').textContent = 'Correct!';
+        document.getElementById('q2-feedback').className = 'correct';
+        score++;
+      } else {
+        document.getElementById('q2-feedback').textContent = 'Incorrect. The correct answer is "Central Processing Unit".';
+        document.getElementById('q2-feedback').className = 'incorrect';
+      }
+
+      const q3Answer = document.querySelector('input[name="q3"]:
