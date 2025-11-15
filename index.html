@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz</title>
-  <style>
-    /* Add your styles here */
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Quiz</h1>
-  <p id="timer">10:00</p>
-  <p id="question"></p>
-  <ul id="options"></ul>
-  <button id="next-btn">Next</button>
-  <button id="submit-btn" style="display: none;">Submit</button>
-  <button id="retake-btn">Retake</button>
-  <p id="result"></p>
-
-  <script src="script.js"></script>
+    <div id="quiz-container">
+        <h1>Quiz Time!</h1>
+        <p id="question"></p>
+        <ul id="options"></ul>
+        <button id="next-btn">Next</button>
+        <button id="submit-btn">Submit</button>
+        <p id="timer"></p>
+        <p id="result"></p>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
