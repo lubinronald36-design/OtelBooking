@@ -7,12 +7,12 @@ function submitQuiz() {
       score++;
     }
   }
+document.getElementById("submit-btn").onclick = function() {
+  alert("Submit button clicked!");
   document.getElementById("question").style.display = "none";
   document.getElementById("options").style.display = "none";
   document.getElementById("next-btn").style.display = "none";
   document.getElementById("submit-btn").style.display = "none";
   document.getElementById("timer").style.display = "none";
   document.getElementById("result").innerHTML = Quiz submitted! Your score is ${score} out of ${questions.length};
-  alert(Quiz submitted! Your score is ${score} out of ${questions.length});
-  console.log("Quiz submitted!");
-}console.log(document.getElementById("submit-btn").addEventListener);
+};
