@@ -1,4 +1,5 @@
 function submitQuiz() {
+  console.log("Submit button clicked!");
   const selectedOption = document.querySelector('input[name="option"]:checked');
   if (selectedOption) {
     const answer = questions[currentQuestion].answer;
@@ -13,4 +14,5 @@ function submitQuiz() {
   document.getElementById("timer").style.display = "none";
   document.getElementById("result").innerHTML = Quiz submitted! Your score is ${score} out of ${questions.length};
   alert(Quiz submitted! Your score is ${score} out of ${questions.length});
-}
+  console.log("Quiz submitted!");
+}console.log(document.getElementById("submit-btn").addEventListener);
