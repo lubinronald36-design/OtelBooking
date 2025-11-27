@@ -1,107 +1,62 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz</title>
-  <style>
-    #submit-btn { display: none; }
-    #quiz-container { width: 50%; margin: 40px auto; text-align: center; }
-    #options { list-style: none; padding: 0; }
-    #options li { margin-bottom: 10px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>December Hotel Special</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .image-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
 <body>
-  <div id="quiz-container">
-    <h2 id="question"></h2>
-    <ul id="options"></ul>
-    <button id="next-btn">Next</button>
-    <button id="submit-btn">Submit</button>
-    <p id="timer"></p>
-    <p id="result"></p>
-  </div>
-
-  <script>
-    const questions = [
-      {
-        question: "What does CPU stand for?",
-        options: ["Central Power Unit", "Central Processing Unit", "Computer Processing Unit", "Central Performance Unit"],
-        answer: 1
-      },
-      {
-        question: "What is the primary function of RAM?",
-        options: ["Storage", "Processing", "Input/Output", "Memory"],
-        answer: 3
-      },
-      {
-        question: "What is a byte?",
-        options: ["A unit of measurement", "A type of computer virus", "A type of software", "A group of 8 bits"],
-        answer: 3
-      },
-      {
-        question: "What is a motherboard?",
-        options: ["A type of software", "A type of hardware", "The main circuit board of a computer", "A type of peripheral device"],
-        answer: 2
-      },
-      {
-        question: "What is a browser?",
-        options: ["A type of software", "A type of hardware", "A program that allows users to access the internet", "A type of virus"],
-        answer: 2
-      }
-    ];
-
-    let currentQuestion = 0;
-    let score = 0;
-    let timer = 300; 
-
-    function generateQuestion() {
-      const question = questions[currentQuestion];
-      document.getElementById("question").innerHTML = question.question;
-      const options = document.getElementById("options");
-      options.innerHTML = "";
-      question.options.forEach((option, index) => {
-        const li = document.createElement("li");
-        li.innerHTML = <input type="radio" name="option" value="${index}"> ${option};
-        options.appendChild(li);
-      });
-      const checkedOption = document.querySelector('input[name="option"]:checked');
-      if (checkedOption) {
-        checkedOption.checked = false;
-      }
-    }
-
-    function nextQuestion() {
-      const selectedOption = document.querySelector('input[name="option"]:checked');
-      if (selectedOption) {
-        const answer = questions[currentQuestion].answer;
-        if (parseInt(selectedOption.value) === answer) {
-          score++;
-        }
-        currentQuestion++;
-        if (currentQuestion < questions.length - 1) {
-          generateQuestion();
-        } else if (currentQuestion === questions.length - 1) {
-          generateQuestion();
-          document.getElementById("next-btn").style.display = "none";
-          document.getElementById("submit-btn").style.display = "block";
-        }
-      } else {
-        alert("Please select an option!");
-      }
-    }
-
-    function submitQuiz() {
-      document.getElementById("question").style.display = "none";
-      document.getElementById("options").style.display = "none";
-      document.getElementById("next-btn").style.display = "none";
-      document.getElementById("submit-btn").style.display = "none";
-      document.getElementById("timer").style.display = "none";
-      document.getElementById("result").innerHTML = Your score is ${score} out of ${questions.length};
-    }
-
-    function startTimer() {
-      setInterval(() => {
-        timer--;
-        const minutes = Math.floor(timer / 60);
-        const seconds = timer % 60;
-        document.get
+    <div class="container">
+        <h1>December Hotel Special</h1>
+        <p>Book now and enjoy a luxurious stay at our hotel during the holiday season!</p>
+        <div class="image-grid">
+            <img src="f1.jpg" alt="Hotel Room">
+            <img src="f2.jpg" alt="Hotel Amenities">
+            <img src="f3.jpg" alt="Delicious Food">
+            <img src="f4.jpg" alt="Relaxing Atmosphere">
+        </div>
+        <button class="button">Book Now</button>
+    </div>
+</body>
+</html>
