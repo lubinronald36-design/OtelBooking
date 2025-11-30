@@ -1,5 +1,5 @@
 
-.button {
+#next-btn, #submit-btn {
   background-color: #4CAF50;
   color: #fff;
   padding: 10px 20px;
@@ -8,17 +8,17 @@
   cursor: pointer;
   width: 100%;
   max-width: 200px;
-  margin: 0 auto;
+  margin: 10px auto;
   font-size: 16px;
   text-align: center;
 }
 
-.button:hover {
+#next-btn:hover, #submit-btn:hover {
   background-color: #3e8e41;
 }
 
 @media only screen and (max-width: 768px) {
-  .button {
+  #next-btn, #submit-btn {
     padding: 15px 30px;
     font-size: 18px;
   }
