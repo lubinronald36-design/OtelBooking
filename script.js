@@ -56,3 +56,12 @@ document.getElementById("submit-btn").addEventListener("click", submitQuiz);
 
 generateQuestion();
 document.getElementById("submit-btn").style.display = "none";
+function scoreQuestion() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const answer = questions[currentQuestion].answer;
+    if (parseInt(selectedOption.value) === answer) {
+      score++;
+    }
+  }
+}
