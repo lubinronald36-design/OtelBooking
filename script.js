@@ -1,4 +1,3 @@
-
 function generateQuestion() {
   const question = questions[currentQuestion];
   const questionElement = document.getElementById("question");
